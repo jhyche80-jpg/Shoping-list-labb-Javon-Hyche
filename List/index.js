@@ -1,16 +1,16 @@
 // --- Variables ---
 let ItemList = [];
-let Itemcart = [];
+let ItemCart = [];
 let count = 0;
 
 // Get HTML elements
 const productList = document.getElementById('product-list');
 const CartList = document.getElementById('CartList');
 const addProductButton = document.getElementById('add-product');
-const InputItem = document.getElementById('Item');
+const InputItem = document.getElementById('item');
 const ItemPrice = document.getElementById('product-price');
-const ItemAmount = document.getElementById('product-quantitiy');
-const errormsg = document.getElementById('error');
+const ItemAmount = document.getElementById('product-quantity');
+const errormsg = document.getElementById('error-msg');
 const TotalPrice =document.getElementById(`total-price`)
 
 
@@ -22,18 +22,18 @@ function RenderList(itemsToRender = ItemList) {
         const newProduct = document.createElement('li');
         newProduct.dataset.id = p.id;
         newProduct.innerHTML = `
-            <p>Name: ${p.name}</p>
-            <p>Price: $${p.price}</p>
-            <p>Quantity: ${p.quantity}</p>
-            <button class="add-to-cart">Add to Cart</button>
+            <p><strong>Name: ${p.name}</strong></p>
+            <p><strong>Price: $${p.price}</strong></p>
+            <p><strong>Quantity: ${p.quantity}<strong> </p>
+            <button class="add-to-cart">Add to Cart</button> 
+            <button class="remove-from-list">Remove from List</button>
         `;
         productList.appendChild(newProduct);
     });
 }
 
-
 // --- Render the shopping cart list ---
-function RenderCart(CartitemsToRender = Itemcart) {
+function RenderCart(CartitemsToRender = ItemCart) {
     CartList.innerHTML = "";
 
     CartitemsToRender.forEach((p) => {
@@ -44,13 +44,21 @@ function RenderCart(CartitemsToRender = Itemcart) {
             <p>Price: $${p.price}</p>
             <p>Quantity: ${p.quantity}</p>
             <button class="remove-from-cart">Remove from Cart</button>
+           
         `;
         CartList.appendChild(newItem);
     });
+    UpdateTotal();
 }
 
 
-// --- Event delegation for the product list (Add to cart) ---
+//  Calculate and update total price 
+function UpdateTotal() {
+    const total = ItemCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    TotalPrice.innerText = total.toFixed(2);
+}
+
+// Event delegation for the product list (Add to cart) 
 productList.addEventListener('click', (event) => {
     const li = event.target.closest('li');
     if (!li) return;
@@ -61,10 +69,17 @@ productList.addEventListener('click', (event) => {
         const index = ItemList.findIndex(item => item.id === productId);
         if (index !== -1) {
             let item = ItemList.splice(index, 1)[0];
-            Itemcart.push(item);
+            ItemCart.push(item);
             console.log(` Added product ${productId} to cart.`);
             RenderList(ItemList);
-            RenderCart(Itemcart);
+            RenderCart(ItemCart);
+        }
+    }
+    if (event.target.classList.contains('remove-from-list')) {
+        const index = ItemList.findIndex(item => item.id === productId);
+        if (index !== -1) {
+            let item = ItemList.splice(index, 1)[0];
+            RenderList(ItemList);
         }
     }
 });
@@ -78,19 +93,19 @@ CartList.addEventListener('click', (event) => {
     const productId = parseInt(li.dataset.id);
 
     if (event.target.classList.contains('remove-from-cart')) {
-        const index = Itemcart.findIndex(item => item.id === productId);
+        const index = ItemCart.findIndex(item => item.id === productId);
         if (index !== -1) {
-            let item = Itemcart.splice(index, 1)[0];
+            let item = ItemCart.splice(index, 1)[0];
             ItemList.push(item);
             console.log(` Removed product ${productId} from cart and added back to list.`);
-            RenderCart(Itemcart);
+            RenderCart(ItemCart);
             RenderList(ItemList);
         }
     }
 });
 
 
-// --- Add new product ---
+//  Add new product 
 addProductButton.addEventListener('click', () => {
     const InputText = InputItem.value.trim();
     const PriceText = ItemPrice.value.trim();
@@ -103,13 +118,14 @@ addProductButton.addEventListener('click', () => {
     }
 
     errormsg.innerText = "";
+    errormsg.classList.remove("error")
     count++;
 
     const newItem = {
         id: count,
         name: InputText,
-        price: PriceText,
-        quantity: QuantityText
+        price: parseFloat(PriceText),
+        quantity: parseFloat(QuantityText)
     };
 
     ItemList.push(newItem);
