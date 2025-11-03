@@ -6,29 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script defer src="/DOM/List/index.js"></script>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body class="body container">
-    <Header class="head "> <h1>Welcome</h1></Header>
-    <div class="mainconent mt-5 w-50 h-75 ">
+    <Header class="head ">
+        <h1>Welcome</h1>
+    </Header>
+    <main class="d-flex flex-row">
+        <div class="mainconent mt-5 w-50 h-75 d-flex flex-row">
 
-        <div class="EnterItem">
-            <label for="Item" class="mb-1"> Please Enter Item </label>
+            <div class="EnterItem">
+                <label for="Item" class="mb-1"> Please Enter Item </label>
+                <input type="text" name="Item" id="Item" class="mb-2" placeholder="Enter Item" style="width: 90%;">
+                <label for="Item"> Price:</label>
+                <input type="number" id="product-price" placeholder="Product Price" style="width: 75%;" step="1">
+                <label for="Quantity ">Quantity: </label>
+                <input type="number " name="Quantitiy" id="product-quantitiy" style="width: 50%;"
+                    placeholder="Quantity">
+                <button id="add-product" class="w-75">Add New Product</button>
 
-            <input type="text" name="Item" id="Item" class="mb-2"placeholder="Enter Item">
+                <p id="error" style="width: 95%;"></p>
 
-            <button id="add-product">Add New Product</button>
+                <ul id="product-list">
+
+                </ul>
+            </div>
+
         </div>
-        <p id="error"></p>
-        <ul id="product-list">
-
-        </ul>
-        <img  id="hover-img" class= "hover-img" src="/DOM/List/elmo-stare.gif" alt="Elmo stares at you " style="display: none;">
+        <img id="hover-img" class="hover-img" src="/DOM/List/elmo-stare.gif" alt="Elmo stares at you "
+            style="display: none;">
         <img id="hover2" src="/DOM/List/spongebob-cant-wait.gif" alt="spongebobs Excited " style="display: none ;">
-    </div>
-    <footer> <img class="imgdark" src="/DOM/List/darkmode.svg" alt="Dark Mode Button"  aria-label="Dark Mode "></footer>
+        </div>
+        <div class="" id="ItemsIncart ">
+            <div id="ShoppingListCart">
+                <h1>Items In cart</h1>
+                <div id="Added">
+                    <ul id="CartList">
+
+                    </ul>
+
+                </div>
+                <h3>Total: $<span id="total-price">0</span></h3>
+            </div>
+        </div>
+    </main>
+    <footer> <img class="imgdark" src="/DOM/List/darkmode.svg" alt="Dark Mode Button" aria-label="Dark Mode "></footer>
 </body>
 
 

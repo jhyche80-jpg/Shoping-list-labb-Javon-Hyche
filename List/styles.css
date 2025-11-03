@@ -1,8 +1,8 @@
 .error{
     background: red;
     color: balck; 
-    display: flex;
-    width: 25% ;
+
+    width: 100% ;
 }
 .body{
     background-color: brown;
@@ -24,7 +24,7 @@
     
     margin: auto;
     background: white;
-    width: 60%;
+    width: 80%;
     padding-bottom: 10%;
     padding-left: 5%;
     height: auto;
