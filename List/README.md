@@ -26,8 +26,22 @@ This lab focuses on modifying elements, creating and appending new elements, and
 ## Steps taken 
 1. Repourposed code 
     - I made a code similar to this one before so I decided to try to repourpose this code to make things work easier. 
+2. I added a render function to render items ( i wanted to proactice functions +)  
+3. I noticed inconsisitencies in the code and mis mached variablees due to spelling mistakes. 
+4. I got the  full cart to work 
+5. I added darkmode 
 ## Reflection
+1. How did you dynamically create and append new elements to the DOM?
+I addded delegation that would create a new list item in their respective boxes . 
+2. What steps did you take to ensure accurate updates to the total price?
+I made a function to calculate the total price. 
 
+3. How did you handle invalid input for product name or price?
+
+    I toggled a paragraph element that was highlighted red and said to enter everything in the field
+
+4. What challenges did you face when implementing the remove functionality?
+    
 
 ##references (by link)
     - https://stackoverflow.com/questions/24163889/html5-input-for-money-currency

@@ -11,7 +11,7 @@ const InputItem = document.getElementById('item');
 const ItemPrice = document.getElementById('product-price');
 const ItemAmount = document.getElementById('product-quantity');
 const errormsg = document.getElementById('error-msg');
-const TotalPrice =document.getElementById(`total-price`)
+const TotalPrice = document.getElementById(`total-price`)
 const DarkMode = document.getElementById("darkModeimg")
 const body = document.body
 const main = document.querySelector(".mainconent")
@@ -43,12 +43,13 @@ function RenderCart(CartitemsToRender = ItemCart) {
         const newItem = document.createElement('li');
         newItem.dataset.id = p.id;
         newItem.innerHTML = `
-            <p>Name: ${p.name}</p>
-            <p>Price: $${p.price}</p>
-            <p>Quantity: ${p.quantity}</p>
-            <button class="remove-from-cart">Remove from Cart</button>
-           
-        `;
+        <p>Name: ${p.name}</p>
+        <p>Price: $${p.price}</p>
+        <p>Quantity: ${p.quantity}</p>
+        <button class="remove-from-cart">Remove from Cart</button> 
+        <input type="number" class="cart-add-quantity" style="width: 25%;" placeholder="Quantity" min="1" value="1">
+        <button class="addMoreItems">Add More Items</button> 
+    `;
         CartList.appendChild(newItem);
     });
     UpdateTotal();
@@ -94,7 +95,7 @@ CartList.addEventListener('click', (event) => {
     if (!li) return;
 
     const productId = parseInt(li.dataset.id);
-
+    // remove from cart 
     if (event.target.classList.contains('remove-from-cart')) {
         const index = ItemCart.findIndex(item => item.id === productId);
         if (index !== -1) {
@@ -103,6 +104,21 @@ CartList.addEventListener('click', (event) => {
             console.log(` Removed product ${productId} from cart and added back to list.`);
             RenderCart(ItemCart);
             RenderList(ItemList);
+        }
+    }
+
+    //add items
+    if (event.target.classList.contains('addMoreItems'))
+    {
+        const QuantityInput = li.querySelector(".cart-add-quantity")
+        const Addmoreq = parseInt(QuantityInput.value) || 0;
+        if (Addmoreq > 0) 
+        {
+            const cardindex = ItemCart.findIndex(item => item.id === productId);
+            if (cardindex !== -1) {
+                ItemCart[cardindex].quantity += Addmoreq
+                RenderCart(ItemCart);
+            }
         }
     }
 });
@@ -141,7 +157,7 @@ addProductButton.addEventListener('click', () => {
     RenderList(ItemList);
 });
 
-    
+
 DarkMode.addEventListener('click', () => {
     body.classList.toggle('dark_mode');
     DarkMode.classList.toggle('imgdarkT');
