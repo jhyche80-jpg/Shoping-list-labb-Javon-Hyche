@@ -12,7 +12,7 @@ const ItemPrice = document.getElementById('product-price');
 const ItemAmount = document.getElementById('product-quantity');
 const errormsg = document.getElementById('error-msg');
 const TotalPrice =document.getElementById(`total-price`)
-const DarkMode = doccument.getElementById("darkModeimg")
+const DarkMode = document.getElementById("darkModeimg")
 
 
 // --- Render the main product list ---
@@ -139,5 +139,6 @@ addProductButton.addEventListener('click', () => {
     RenderList(ItemList);
 });
 DarkMode.addEventListener(`click`, () =>{
+    
     
 })

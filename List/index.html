@@ -10,34 +10,32 @@
     <title>Document</title>
 </head>
 
-<body class="body container">
+<body class="container">
     <header class="head">
         <h1>Welcome</h1>
     </header>
 
-    <main class="d-flex flex-row">
-        <div class="mainconent mt-5 w-50 h-75 d-flex flex-row">
-            <div class="EnterItem">
-                <label for="item" class="mb-1">Please Enter Item</label>
+    <main class="d-flex flex-row mt-5 pt-5">
+        <div class="mainconent  w-50 h-75 d-flex flex-row ">
+            <div class="EnterItem mt-5">
+                <label for="item" class="mb-1"><strong>Please Enter Item:</strong></label>
                 <input type="text" id="item" class="mb-2" placeholder="Enter Item" style="width: 90%;">
 
-                <label for="product-price">Price:</label>
+                <label for="product-price"><strong>Price:</strong></label>
                 <input type="number" id="product-price" placeholder="Product Price" style="width: 75%;" step="1" min="0">
 
-                <label for="product-quantity">Quantity:</label>
+                <label for="product-quantity"><strong>Quantity:</strong></label>
                 <input type="number" id="product-quantity" style="width: 50%;" placeholder="Quantity" min="0">
 
-                <button id="add-product" class="w-75">Add New Product</button>
+                <button id="add-product" class="w-75 mt-3">Add New Product</button>
 
-                <p id="error-msg" style="width: 95%;"></p>
+                <p id="error-msg" style="width: 95%;" class="mt-2"></p>
 
                 <ul id="product-list"></ul>
             </div>
         </div>
 
-        <img id="hover-img" class="hover-img" src="/DOM/List/elmo-stare.gif" alt="Elmo stares at you" style="display: none;">
-        <img id="hover2" src="/DOM/List/spongebob-cant-wait.gif" alt="Spongebob excited" style="display: none;">
-
+        
         <div id="ItemsIncart">
             <div id="ShoppingListCart">
                 <h1>Items In Cart</h1>
@@ -49,9 +47,11 @@
         </div>
     </main>
 
-    <footer>
-        <img class="imgdark" src="/DOM/List/darkmode.svg" alt="Dark Mode Button" aria-label="Dark Mode" id="darkModeimg">
-    </footer>
+    
+       
+    
 </body>
-
+<footer id="foot">
+ <img class="imgdark" src="/DOM/List/darkmode.svg" alt="Dark Mode Button" aria-label="Dark Mode" id="darkModeimg">
+</footer>
 </html>

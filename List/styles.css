@@ -1,14 +1,20 @@
+
+
 .error{
-    background: red;
+    background: #22ebe4;
     color: balck; 
 
     width: 100% ;
 }
-.body{
-    background-color: brown;
-    margin-left: 10%;
-    
+
+body {
+  background-image: linear-gradient(to bottom, white, #22ebe4);
+  background-attachment: fixed;
 }
+body.dark_mode{
+    background-color: ;
+}
+
 #hover-img{
     width: 10%;
     height: 15%;
@@ -20,14 +26,16 @@
 .remove-from-cart{
     padding: 2px;
 }
-.mainconent{
+.mainconent {
     
     margin: auto;
-    background: white;
+    background: #f5d9c4;
     width: 80%;
     padding-bottom: 10%;
     padding-left: 5%;
     height: auto;
+    color: #767211;
+    
     
 
 }
@@ -42,7 +50,7 @@
     flex-direction: column;
 }
 .head{ 
-    color: white;
+    color: #767211;
     margin-top: 5%;
     font-size: 70%;
     font-family: fantasy;
@@ -56,5 +64,21 @@
 .imgdark{
     width: 5%;
     height: 5%;
-    cursor: pointer;
+    cursor: pointer; 
+    bottom: 10%;
+}
+#ShoppingListCart{
+    background: #f5d9c4;
+    padding: 20%;
+    width: 150%;
+    color: #767211;
+}
+#foot{
+    bottom: 10px;
+    position: fixed;
+    margin-left: 0;
+    
+}
+.imgdark:hover{
+    background-color: #bb0000;
 }
