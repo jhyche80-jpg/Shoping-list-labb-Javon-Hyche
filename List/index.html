@@ -22,10 +22,10 @@
                 <input type="text" id="item" class="mb-2" placeholder="Enter Item" style="width: 90%;">
 
                 <label for="product-price">Price:</label>
-                <input type="number" id="product-price" placeholder="Product Price" style="width: 75%;" step="1">
+                <input type="number" id="product-price" placeholder="Product Price" style="width: 75%;" step="1" min="0">
 
                 <label for="product-quantity">Quantity:</label>
-                <input type="number" id="product-quantity" style="width: 50%;" placeholder="Quantity">
+                <input type="number" id="product-quantity" style="width: 50%;" placeholder="Quantity" min="0">
 
                 <button id="add-product" class="w-75">Add New Product</button>
 
@@ -50,7 +50,7 @@
     </main>
 
     <footer>
-        <img class="imgdark" src="/DOM/List/darkmode.svg" alt="Dark Mode Button" aria-label="Dark Mode">
+        <img class="imgdark" src="/DOM/List/darkmode.svg" alt="Dark Mode Button" aria-label="Dark Mode" id="darkModeimg">
     </footer>
 </body>
 

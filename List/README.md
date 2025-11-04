@@ -31,3 +31,6 @@ This lab focuses on modifying elements, creating and appending new elements, and
 
 ##references (by link)
     - https://stackoverflow.com/questions/24163889/html5-input-for-money-currency
+    - https://www.geeksforgeeks.org/javascript/how-to-move-an-array-element-from-one-array-position-to-another-in-javascript/
+    - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+    - https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
