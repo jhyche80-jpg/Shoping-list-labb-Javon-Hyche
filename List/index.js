@@ -13,7 +13,9 @@ const ItemAmount = document.getElementById('product-quantity');
 const errormsg = document.getElementById('error-msg');
 const TotalPrice =document.getElementById(`total-price`)
 const DarkMode = document.getElementById("darkModeimg")
-
+const body = document.body
+const main = document.querySelector(".mainconent")
+const CartContainer = document.getElementById("ShoppingListCart")
 
 // --- Render the main product list ---
 function RenderList(itemsToRender = ItemList) {
@@ -138,7 +140,12 @@ addProductButton.addEventListener('click', () => {
 
     RenderList(ItemList);
 });
-DarkMode.addEventListener(`click`, () =>{
+
     
-    
-})
+DarkMode.addEventListener('click', () => {
+    body.classList.toggle('dark_mode');
+    DarkMode.classList.toggle('imgdarkT');
+    CartContainer.classList.toggle('darkmodecontent');
+    main.classList.toggle('darkmodecontent');
+    console.log('Dark mode clicked');
+});

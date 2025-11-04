@@ -10,9 +10,12 @@
 body {
   background-image: linear-gradient(to bottom, white, #22ebe4);
   background-attachment: fixed;
+  color: #767211;
 }
-body.dark_mode{
-    background-color: ;
+body.dark_mode {
+   background-image: linear-gradient(to bottom, #5e5e5e, #191614);
+
+    color: #d08e53;
 }
 
 #hover-img{
@@ -50,7 +53,6 @@ body.dark_mode{
     flex-direction: column;
 }
 .head{ 
-    color: #767211;
     margin-top: 5%;
     font-size: 70%;
     font-family: fantasy;
@@ -67,6 +69,9 @@ body.dark_mode{
     cursor: pointer; 
     bottom: 10%;
 }
+.imgdarkT{
+    background-color: grey;
+}
 #ShoppingListCart{
     background: #f5d9c4;
     padding: 20%;
@@ -81,4 +86,30 @@ body.dark_mode{
 }
 .imgdark:hover{
     background-color: #bb0000;
+}
+.darkmodecontent {
+    background-color: #3f47cd;
+    color: #f0f0f0; 
+}
+
+
+.darkmodecontent li {
+    background-color: #5e50a1;
+    color: #f0f0f0;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#ShoppingListCart.darkmodecontent {
+    background-color: #3f47cd;
+    color: #f0f0f0;
+}
+
+#ShoppingListCart.darkmodecontent li {
+    background-color: #5e50a1;
+    color: #f0f0f0;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
 }
